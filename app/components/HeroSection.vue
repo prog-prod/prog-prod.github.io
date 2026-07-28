@@ -1,3 +1,11 @@
+<script setup lang="ts">
+// The PDF lives in public/, so it needs the deployment's base path prepended —
+// Vite only rewrites asset URLs in src attributes, not in bound hrefs.
+const cvHref = computed(
+  () => useRuntimeConfig().app.baseURL.replace(/\/$/, '') + CV_URL
+)
+</script>
+
 <template>
   <section id="hero" class="hero">
     <div class="container hero-inner">
@@ -16,6 +24,7 @@
         <div v-reveal="240" class="hero-actions">
           <a class="btn btn-primary" href="#work">View my work</a>
           <a class="btn btn-ghost" href="#contact">Get in touch</a>
+          <a class="btn btn-ghost" :href="cvHref" download>Download CV</a>
         </div>
         <div v-reveal="320" class="hero-socials">
           <a

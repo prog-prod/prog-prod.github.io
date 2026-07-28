@@ -1,3 +1,15 @@
+<script setup lang="ts">
+// Twelve cards of equal weight read as a list of claims. Lead with a shortlist
+// and keep the rest one click away instead of dropping them.
+const FEATURED_COUNT = 6
+
+const showAll = ref(false)
+const visibleProjects = computed(() =>
+  showAll.value ? PROJECTS : PROJECTS.slice(0, FEATURED_COUNT)
+)
+const hiddenCount = computed(() => Math.max(0, PROJECTS.length - FEATURED_COUNT))
+</script>
+
 <template>
   <section id="work" class="section">
     <div class="container">
@@ -14,7 +26,7 @@
 
       <div class="projects-grid">
         <article
-          v-for="(project, i) in PROJECTS"
+          v-for="(project, i) in visibleProjects"
           :key="project.name"
           v-reveal="(i % 3) * 90"
           v-tilt
@@ -22,17 +34,24 @@
         >
           <div class="tilt-glare" />
           <div class="project-media">
-            <ProjectCover :icon="project.icon" :variant="project.variant" :seed="i + 1" />
+            <ProjectCover :icon="project.icon" :category="project.category" :seed="i + 1" />
             <span class="project-category">{{ project.category }}</span>
           </div>
           <div class="project-body">
             <h3>{{ project.name }}</h3>
+            <p class="project-metric" v-if="project.metric">{{ project.metric }}</p>
             <p>{{ project.desc }}</p>
             <div class="project-tags">
               <span v-for="tag in project.tags" :key="tag">{{ tag }}</span>
             </div>
           </div>
         </article>
+      </div>
+
+      <div v-if="hiddenCount" class="projects-more">
+        <button type="button" class="btn btn-ghost" @click="showAll = !showAll">
+          {{ showAll ? 'Show fewer projects' : `Show ${hiddenCount} more projects` }}
+        </button>
       </div>
 
       <div class="repos-head">
@@ -138,6 +157,21 @@
   color: var(--muted);
   font-size: 14.5px;
   flex: 1;
+}
+
+/* The one line a client actually scans for — give it the weight to match. */
+.project-metric {
+  margin-top: 10px;
+  color: var(--cyan);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+.projects-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
 }
 
 .project-tags {

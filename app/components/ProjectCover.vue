@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   icon: string
-  variant: number
+  category: string
   seed: number
 }>()
 
@@ -46,14 +46,21 @@ const ICONS: Record<string, string[]> = {
   ]
 }
 
-/* gradient palettes per variant */
-const PALETTES = [
-  { a: '#8b5cf6', b: '#22d3ee' },
-  { a: '#22d3ee', b: '#6366f1' },
-  { a: '#a855f7', b: '#38bdf8' }
-]
+/* Keyed by category rather than an arbitrary index: with three violet-to-cyan
+   variants shared across every project the cards were indistinguishable at a
+   glance. Colour now carries the same information as the category label. */
+const PALETTES: Record<string, { a: string; b: string }> = {
+  Fintech: { a: '#10b981', b: '#22d3ee' },
+  'E-commerce': { a: '#f59e0b', b: '#f43f5e' },
+  'Web Platform': { a: '#8b5cf6', b: '#38bdf8' },
+  Streaming: { a: '#f43f5e', b: '#a855f7' },
+  Enterprise: { a: '#3b82f6', b: '#22d3ee' },
+  Marketing: { a: '#d946ef', b: '#f59e0b' },
+  Monitoring: { a: '#22d3ee', b: '#6366f1' }
+}
+const FALLBACK = { a: '#8b5cf6', b: '#22d3ee' }
 
-const palette = computed(() => PALETTES[props.variant % PALETTES.length]!)
+const palette = computed(() => PALETTES[props.category] ?? FALLBACK)
 const paths = computed(() => ICONS[props.icon] ?? ICONS.cube!)
 const gid = computed(() => `cover-g-${props.seed}`)
 

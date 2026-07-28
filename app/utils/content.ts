@@ -4,7 +4,7 @@ export interface Project {
   tags: string[]
   category: string
   icon: string
-  variant: number
+  metric?: string
 }
 
 export interface Repo {
@@ -26,6 +26,7 @@ export interface Social {
   url: string
 }
 
+export const CV_URL = '/andrii-polyvianyi-cv.pdf'
 export const EMAIL = 'polyvyanyy.andrii@gmail.com'
 export const TELEGRAM = 'https://t.me/primary_dv'
 export const TELEGRAM_HANDLE = `@${TELEGRAM.split('/').pop()}`
@@ -66,96 +67,84 @@ export const PROJECTS: Project[] = [
     desc: 'High-load SEO platform with full-text search across millions of profiles: SSR app on Laravel + Vue 3 (Inertia.js), microservices architecture, dynamic SEO pages and an admin panel with parser monitoring.',
     tags: ['Laravel', 'Vue 3', 'Elasticsearch', 'Redis'],
     category: 'Web Platform',
-    icon: 'search',
-    variant: 0
+    icon: 'search'
   },
   {
     name: 'E-commerce Platform with Custom Print Builder',
     desc: 'Full-scale e-commerce platform with a print-on-demand builder and 3D product customization on Three.js. Typesense/Elasticsearch search, payments via Stripe, PayPal, LiqPay and Fondy, admin panel with CRM.',
     tags: ['Laravel', 'Vue 3', 'Three.js', 'Elasticsearch'],
     category: 'E-commerce',
-    icon: 'cube',
-    variant: 1
+    icon: 'cube'
   },
   {
     name: 'Fintech Platform with Credit Calculator',
     desc: 'Production fintech platform with a real-time credit calculator, Filament admin panel and an SMS gateway for marketing campaigns — optimized for high traffic and secure financial logic.',
     tags: ['Laravel', 'Livewire', 'Tailwind CSS', 'MySQL'],
     category: 'Fintech',
-    icon: 'calculator',
-    variant: 2
+    icon: 'calculator'
   },
   {
     name: 'Video Streaming Platform (TikTok-style Reels)',
     desc: 'TikTok-style video platform: vertical autoplay feed on HLS/DASH with Cloudflare Stream, comments, favorites and profiles, plus an analytics admin and a full visit/click tracking system.',
     tags: ['Laravel', 'Nuxt', 'WebSockets', 'Redis'],
     category: 'Streaming',
-    icon: 'play',
-    variant: 1
+    icon: 'play'
   },
   {
     name: 'Enterprise Membership & Payment System',
     desc: 'Enterprise membership platform with payments and subscriptions used by organizations in Norway: invoicing, refunds and payment flows with Stripe and EHF, reports, notifications and data validation.',
     tags: ['Node.js', 'Ember.js', 'PHP', 'Kubernetes'],
     category: 'Enterprise',
-    icon: 'users',
-    variant: 0
+    icon: 'users'
   },
   {
     name: 'Fintech Platform for Earned Wage Access',
     desc: 'Pay-on-demand platform: a multi-tenant system for companies and employees with a LiqPay payment flow, RBAC admin panel, SMS verification and Redis + Meilisearch under the hood.',
     tags: ['Laravel', 'Vue 3', 'Inertia.js', 'Docker'],
     category: 'Fintech',
-    icon: 'wallet',
-    variant: 2
+    icon: 'wallet'
   },
   {
     name: 'Headless CMS Website',
     desc: 'Headless corporate website: statically generated Nuxt.js frontend over a WordPress REST API backend, HubSpot integration, SEO tooling and AWS infrastructure with S3, CloudFront and ECS.',
     tags: ['Nuxt.js', 'WordPress', 'AWS', 'Docker'],
     category: 'Web Platform',
-    icon: 'layers',
-    variant: 0
+    icon: 'layers'
   },
   {
     name: 'Fintech Landing with Credit Calculator',
     desc: 'High-conversion fintech landing with an XIRR loan calculator and payment schedule, UA/RU localization, GA4/GTM/UTM analytics, secure lead forms and fingerprint-based user identification.',
     tags: ['PHP', 'JavaScript', 'GTM', 'AWS S3'],
     category: 'Fintech',
-    icon: 'trending',
-    variant: 1
+    icon: 'trending'
   },
   {
     name: 'Fintech Marketing Website',
     desc: 'Marketing website for a financial product with a dynamic loan calculator, UA/RU localization, lead-generation forms with reCAPTCHA and analytics wired through Google Tag Manager.',
     tags: ['PHP', 'JavaScript', 'MySQL', 'GTM'],
     category: 'Fintech',
-    icon: 'globe',
-    variant: 2
+    icon: 'globe'
   },
   {
     name: 'Marketing Landing with Partner Integration',
     desc: 'Marketing landing page for a financial service with dynamic partner selection, GTM/UTM campaign tracking and a responsive UI tuned for conversions and mobile traffic.',
     tags: ['Laravel 12', 'Livewire', 'Tailwind CSS'],
     category: 'Marketing',
-    icon: 'chart',
-    variant: 0
+    icon: 'chart'
   },
   {
     name: 'Railway Ticket Monitoring System',
     desc: 'Real-time monitoring system for railway tickets: Laravel backend with API integrations, a data-visualization dashboard and monitoring logic built for stability and high reliability.',
     tags: ['Laravel', 'Vue.js', 'Node.js', 'Socket.io'],
     category: 'Monitoring',
-    icon: 'activity',
-    variant: 1
+    icon: 'activity'
   },
   {
     name: 'Full E-commerce Store',
     desc: 'Full-featured online store with a product catalog, filtering and cart logic, an integrated backend API and performance tuned for a smooth shopping experience.',
     tags: ['Laravel', 'Vue.js', 'MySQL'],
     category: 'E-commerce',
-    icon: 'bag',
-    variant: 2
+    icon: 'bag'
   }
 ]
 
