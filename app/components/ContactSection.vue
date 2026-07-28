@@ -7,8 +7,8 @@
       </h2>
       <p v-reveal="120" class="contact-sub">
         Have a question, or want to order a website or a new project? Send me an
-        email or a message on Telegram — I'm online from 7:00 to 22:00, and the
-        first consultation is free.
+        email or a message on Telegram — I work weekdays, 10:00–19:00 Kyiv time,
+        and usually reply the same day. The first consultation is free.
       </p>
 
       <div v-reveal="200" class="contact-actions">
