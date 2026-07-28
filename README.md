@@ -1,6 +1,6 @@
 # Personal Website — Andrii Polyvianyi
 
-**Live:** https://prog-prod.github.io/personal-website/
+**Live:** https://prog-prod.github.io
 
 A redesign of the old [spa](https://github.com/prog-prod/spa) (Laravel + Vue 2) personal
 website, rebuilt with **Nuxt 4** and an animated **Three.js** 3D scene.
@@ -31,10 +31,11 @@ npm run generate # static site (SSG) into .output/public
 Every push to `main` runs [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml),
 which generates the static site and publishes it to GitHub Pages.
 
-Because Pages serves the site from `/personal-website/`, the build needs a base path.
-`actions/configure-pages` supplies it via `NUXT_APP_BASE_URL`; to reproduce a
-production build locally:
+This repo is the user site (`prog-prod.github.io`), so Pages serves it from the
+root and no base path is needed. The build still reads one from
+`NUXT_APP_BASE_URL` — supplied by `actions/configure-pages` — so the same
+workflow keeps working if the site ever moves to a subpath.
 
 ```bash
-NUXT_APP_BASE_URL=/personal-website npm run generate && npx serve .output/public
+npm run generate && npx serve .output/public
 ```
