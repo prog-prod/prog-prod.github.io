@@ -27,7 +27,8 @@ export interface Social {
 }
 
 export const EMAIL = 'polyvyanyy.andrii@gmail.com'
-export const TELEGRAM = 'https://t.me/prog_prog'
+export const TELEGRAM = 'https://t.me/primary_dv'
+export const TELEGRAM_HANDLE = `@${TELEGRAM.split('/').pop()}`
 
 export const SOCIALS: Social[] = [
   { name: 'GitHub', icon: 'github', url: 'https://github.com/prog-prod' },

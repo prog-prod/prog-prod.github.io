@@ -18,7 +18,7 @@
         </a>
         <a class="btn btn-ghost" :href="TELEGRAM" target="_blank" rel="noopener">
           <SocialIcon name="telegram" />
-          @prog_prog
+          {{ TELEGRAM_HANDLE }}
         </a>
       </div>
 
