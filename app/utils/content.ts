@@ -1,9 +1,10 @@
 export interface Project {
   name: string
   desc: string
-  img: string
   tags: string[]
-  link?: string
+  category: string
+  icon: string
+  variant: number
 }
 
 export interface Repo {
@@ -60,58 +61,100 @@ export const SKILL_GROUPS: SkillGroup[] = [
 
 export const PROJECTS: Project[] = [
   {
-    name: 'Nort Monitoring',
-    desc: 'A tracking system for railway tickets — monitors seat availability and notifies users the moment tickets appear.',
-    img: '/img/nortmonitoring.png',
-    tags: ['Laravel', 'Vue.js', 'MySQL']
+    name: 'High-Load SEO Platform with Search',
+    desc: 'High-load SEO platform with full-text search across millions of profiles: SSR app on Laravel + Vue 3 (Inertia.js), microservices architecture, dynamic SEO pages and an admin panel with parser monitoring.',
+    tags: ['Laravel', 'Vue 3', 'Elasticsearch', 'Redis'],
+    category: 'Web Platform',
+    icon: 'search',
+    variant: 0
   },
   {
-    name: 'Proxy Auto Configuration',
-    desc: 'A service that generates and serves PAC files, letting clients route traffic through the right proxy automatically.',
-    img: '/img/ProxyService.png',
-    tags: ['PHP', 'Networking']
+    name: 'E-commerce Platform with Custom Print Builder',
+    desc: 'Full-scale e-commerce platform with a print-on-demand builder and 3D product customization on Three.js. Typesense/Elasticsearch search, payments via Stripe, PayPal, LiqPay and Fondy, admin panel with CRM.',
+    tags: ['Laravel', 'Vue 3', 'Three.js', 'Elasticsearch'],
+    category: 'E-commerce',
+    icon: 'cube',
+    variant: 1
   },
   {
-    name: 'Quiz Generator',
-    desc: 'A web application for building and passing custom quizzes with instant scoring of the results.',
-    img: '/img/quiz-generator.png',
-    tags: ['PHP', 'JavaScript']
+    name: 'Fintech Platform with Credit Calculator',
+    desc: 'Production fintech platform with a real-time credit calculator, Filament admin panel and an SMS gateway for marketing campaigns — optimized for high traffic and secure financial logic.',
+    tags: ['Laravel', 'Livewire', 'Tailwind CSS', 'MySQL'],
+    category: 'Fintech',
+    icon: 'calculator',
+    variant: 2
   },
   {
-    name: 'Luck Generator',
-    desc: 'A playful web app for random draws and giveaways — pick a winner in one click.',
-    img: '/img/luckgenerator.png',
-    tags: ['JavaScript', 'PHP']
+    name: 'Video Streaming Platform (TikTok-style Reels)',
+    desc: 'TikTok-style video platform: vertical autoplay feed on HLS/DASH with Cloudflare Stream, comments, favorites and profiles, plus an analytics admin and a full visit/click tracking system.',
+    tags: ['Laravel', 'Nuxt', 'WebSockets', 'Redis'],
+    category: 'Streaming',
+    icon: 'play',
+    variant: 1
   },
   {
-    name: 'Underman',
-    desc: 'A corporate website with a product catalog, built to present the brand and drive inbound requests.',
-    img: '/img/underman.png',
-    tags: ['WordPress', 'CSS3']
+    name: 'Enterprise Membership & Payment System',
+    desc: 'Enterprise membership platform with payments and subscriptions used by organizations in Norway: invoicing, refunds and payment flows with Stripe and EHF, reports, notifications and data validation.',
+    tags: ['Node.js', 'Ember.js', 'PHP', 'Kubernetes'],
+    category: 'Enterprise',
+    icon: 'users',
+    variant: 0
   },
   {
-    name: 'Dance Club',
-    desc: 'A website for a dance studio with class schedule, trainers and enrollment form.',
-    img: '/img/dance.png',
-    tags: ['PHP', 'jQuery']
+    name: 'Fintech Platform for Earned Wage Access',
+    desc: 'Pay-on-demand platform: a multi-tenant system for companies and employees with a LiqPay payment flow, RBAC admin panel, SMS verification and Redis + Meilisearch under the hood.',
+    tags: ['Laravel', 'Vue 3', 'Inertia.js', 'Docker'],
+    category: 'Fintech',
+    icon: 'wallet',
+    variant: 2
   },
   {
-    name: 'Bank Service',
-    desc: 'A test assignment: a small banking service handling accounts and transactions safely.',
-    img: '/img/bank.png',
-    tags: ['Laravel', 'MySQL']
+    name: 'Headless CMS Website',
+    desc: 'Headless corporate website: statically generated Nuxt.js frontend over a WordPress REST API backend, HubSpot integration, SEO tooling and AWS infrastructure with S3, CloudFront and ECS.',
+    tags: ['Nuxt.js', 'WordPress', 'AWS', 'Docker'],
+    category: 'Web Platform',
+    icon: 'layers',
+    variant: 0
   },
   {
-    name: 'Endless Tree',
-    desc: 'A test assignment: an infinitely nested category tree with efficient storage and rendering.',
-    img: '/img/minty.png',
-    tags: ['PHP', 'MySQL']
+    name: 'Fintech Landing with Credit Calculator',
+    desc: 'High-conversion fintech landing with an XIRR loan calculator and payment schedule, UA/RU localization, GA4/GTM/UTM analytics, secure lead forms and fingerprint-based user identification.',
+    tags: ['PHP', 'JavaScript', 'GTM', 'AWS S3'],
+    category: 'Fintech',
+    icon: 'trending',
+    variant: 1
   },
   {
-    name: 'Online Store',
-    desc: 'An e-commerce store with a product catalog, cart and order flow.',
-    img: '/img/beyblade.png',
-    tags: ['PHP', 'MySQL', 'jQuery']
+    name: 'Fintech Marketing Website',
+    desc: 'Marketing website for a financial product with a dynamic loan calculator, UA/RU localization, lead-generation forms with reCAPTCHA and analytics wired through Google Tag Manager.',
+    tags: ['PHP', 'JavaScript', 'MySQL', 'GTM'],
+    category: 'Fintech',
+    icon: 'globe',
+    variant: 2
+  },
+  {
+    name: 'Marketing Landing with Partner Integration',
+    desc: 'Marketing landing page for a financial service with dynamic partner selection, GTM/UTM campaign tracking and a responsive UI tuned for conversions and mobile traffic.',
+    tags: ['Laravel 12', 'Livewire', 'Tailwind CSS'],
+    category: 'Marketing',
+    icon: 'chart',
+    variant: 0
+  },
+  {
+    name: 'Railway Ticket Monitoring System',
+    desc: 'Real-time monitoring system for railway tickets: Laravel backend with API integrations, a data-visualization dashboard and monitoring logic built for stability and high reliability.',
+    tags: ['Laravel', 'Vue.js', 'Node.js', 'Socket.io'],
+    category: 'Monitoring',
+    icon: 'activity',
+    variant: 1
+  },
+  {
+    name: 'Full E-commerce Store',
+    desc: 'Full-featured online store with a product catalog, filtering and cart logic, an integrated backend API and performance tuned for a smooth shopping experience.',
+    tags: ['Laravel', 'Vue.js', 'MySQL'],
+    category: 'E-commerce',
+    icon: 'bag',
+    variant: 2
   }
 ]
 

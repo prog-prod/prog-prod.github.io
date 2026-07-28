@@ -7,8 +7,8 @@
           Projects <span class="text-grad">& sites I've built</span>
         </h2>
         <p v-reveal="120" class="section-sub">
-          A selection of commercial work, pet projects and test assignments from
-          over the years.
+          Selected commercial projects — fintech platforms, e-commerce systems
+          and high-load services I've built for real businesses.
         </p>
       </div>
 
@@ -22,7 +22,8 @@
         >
           <div class="tilt-glare" />
           <div class="project-media">
-            <img :src="project.img" :alt="project.name" loading="lazy" />
+            <ProjectCover :icon="project.icon" :variant="project.variant" :seed="i + 1" />
+            <span class="project-category">{{ project.category }}</span>
           </div>
           <div class="project-body">
             <h3>{{ project.name }}</h3>
@@ -90,21 +91,34 @@
 }
 
 .project-media {
+  position: relative;
   aspect-ratio: 16 / 10;
   overflow: hidden;
   border-bottom: 1px solid var(--border);
 }
 
-.project-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
+.project-media .cover {
   transition: transform 0.5s ease;
 }
 
-.project-card:hover .project-media img {
-  transform: scale(1.05);
+.project-card:hover .project-media .cover {
+  transform: scale(1.06);
+}
+
+.project-category {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: rgba(5, 5, 17, 0.66);
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  border-radius: 999px;
 }
 
 .project-body {
