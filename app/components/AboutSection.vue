@@ -12,7 +12,7 @@
         <div v-reveal class="about-portrait">
           <div class="portrait-ring" aria-hidden="true" />
           <img
-            src="/img/portfolio-img.png"
+            src="/img/portrait.jpg"
             alt="Andrii Polyvianyi"
             width="360"
             height="360"

@@ -44,7 +44,7 @@ export default defineNuxtConfig({
         },
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: siteUrl + baseURL },
-        { property: 'og:image', content: siteUrl + asset('/img/portfolio-img.png') }
+        { property: 'og:image', content: siteUrl + asset('/img/portrait.jpg') }
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: asset('/favicon.svg') },
