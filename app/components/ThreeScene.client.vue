@@ -249,14 +249,21 @@ function initScene() {
   scene.add(stars)
 
   /* ---- responsive placement ---- */
+  // Scroll drift is added on top of this, so the base offset lives here rather
+  // than being written straight onto the group.
+  let baseY = 0
   const applyLayout = () => {
     const w = window.innerWidth
     if (w < 768) {
-      blobGroup.position.x = 0
-      blobGroup.position.z = -2.5
-      blobGroup.scale.setScalar(0.72)
+      // Below the copy instead of behind it — centred, the blob put bright
+      // particles directly under the hero paragraph.
+      blobGroup.position.x = 0.7
+      baseY = -2.15
+      blobGroup.position.z = -3.4
+      blobGroup.scale.setScalar(0.55)
     } else {
       blobGroup.position.x = 2.5
+      baseY = 0
       blobGroup.position.z = 0
       blobGroup.scale.setScalar(1)
     }
@@ -299,14 +306,21 @@ function initScene() {
     halo.rotation.copy(blob.rotation)
     stars.rotation.y = t * 0.008
 
-    // scroll: blob drifts up and fades to an ambient presence
+    // scroll: blob drifts up and clears the screen by the end of the hero.
+    // It used to settle at a 0.22 opacity floor, which left it bleeding through
+    // the About and Portfolio copy for the whole page.
     const vh = window.innerHeight
-    blobGroup.position.y = scrollY * 0.0016
+    blobGroup.position.y = baseY + scrollY * 0.0016
     stars.position.y = scrollY * 0.0006
-    const fade = 1 - Math.min(scrollY / (vh * 1.35), 1)
+    const fade = 1 - Math.min(scrollY / (vh * 0.8), 1)
     const isMobile = window.innerWidth < 768
-    blobMat.uniforms.uOpacity!.value = (isMobile ? 0.35 : 1) * (0.22 + fade * 0.78)
-    haloMat.uniforms.uOpacity!.value = (isMobile ? 0.45 : 1) * (0.25 + fade * 0.75)
+    const blobOpacity = fade * (isMobile ? 0.3 : 1)
+    const haloOpacity = fade * (isMobile ? 0.38 : 1)
+    blobMat.uniforms.uOpacity!.value = blobOpacity
+    haloMat.uniforms.uOpacity!.value = haloOpacity
+    // Drop the draw calls once it is invisible; the starfield carries on alone.
+    blob.visible = blobOpacity > 0.002
+    halo.visible = haloOpacity > 0.002
 
     // mouse parallax
     camera.position.x += (mouse.x * 0.55 - camera.position.x) * 0.035
@@ -325,7 +339,7 @@ function initScene() {
   const renderOnce = () => {
     blobMat.uniforms.uTime!.value = 1.5
     haloMat.uniforms.uTime!.value = 1.5
-    blobGroup.position.y = scrollY * 0.0016
+    blobGroup.position.y = baseY + scrollY * 0.0016
     renderer.render(scene, camera)
   }
 
@@ -381,5 +395,23 @@ function initScene() {
   height: 100%;
   z-index: 0;
   pointer-events: none;
+  /* The scene mounts after first paint, so ease it in rather than popping. */
+  animation: scene-in 900ms ease both;
+}
+
+@keyframes scene-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-canvas {
+    animation: none;
+  }
 }
 </style>

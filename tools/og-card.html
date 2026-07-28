@@ -1,0 +1,55 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1200px; height:630px; }
+  body {
+    background:#050511;
+    font-family: -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    color:#eceaf6; overflow:hidden; position:relative;
+  }
+  .grid { position:absolute; inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size:60px 60px; }
+  .glow-a { position:absolute; width:760px; height:760px; right:-200px; top:-320px;
+    background:radial-gradient(circle,rgba(139,92,246,.40),transparent 62%); }
+  .glow-b { position:absolute; width:720px; height:720px; left:-260px; bottom:-360px;
+    background:radial-gradient(circle,rgba(34,211,238,.26),transparent 62%); }
+  .wrap { position:relative; height:100%; display:flex; align-items:center;
+    gap:74px; padding:0 88px; }
+  .eyebrow { display:flex; align-items:center; gap:14px; color:#22d3ee;
+    font-size:19px; font-weight:600; letter-spacing:.20em; text-transform:uppercase; }
+  .eyebrow::before { content:""; width:46px; height:2px; background:#22d3ee; }
+  h1 { font-size:76px; line-height:1.05; font-weight:700; letter-spacing:-.025em;
+    margin-top:26px; }
+  .grad { background:linear-gradient(96deg,#8b5cf6,#22d3ee); -webkit-background-clip:text;
+    background-clip:text; color:transparent; display:block; }
+  .sub { margin-top:26px; color:#9aa0b8; font-size:25px; line-height:1.45; max-width:610px; }
+  .tags { margin-top:34px; display:flex; gap:11px; flex-wrap:wrap; }
+  .tag { border:1px solid rgba(255,255,255,.13); background:rgba(255,255,255,.045);
+    border-radius:999px; padding:9px 19px; font-size:19px; color:#c9cee2; font-weight:500; }
+  .shot { position:relative; flex:none; width:340px; height:340px; }
+  .ring { position:absolute; inset:0; border-radius:50%;
+    background:conic-gradient(from 210deg,#8b5cf6,#22d3ee,#8b5cf6); }
+  .shot img { position:absolute; inset:7px; width:326px; height:326px;
+    border-radius:50%; object-fit:cover; }
+  .url { position:absolute; left:88px; bottom:52px; color:#6f7690; font-size:21px;
+    letter-spacing:.03em; }
+</style></head>
+<body>
+  <div class="grid"></div><div class="glow-a"></div><div class="glow-b"></div>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Full Stack Web Developer</div>
+      <h1>Andrii Polyvianyi<span class="grad">I build things for the web.</span></h1>
+      <div class="tags">
+        <span class="tag">Laravel</span><span class="tag">Vue 3</span>
+        <span class="tag">Nuxt</span><span class="tag">Node.js</span>
+        <span class="tag">MySQL</span>
+      </div>
+    </div>
+    <div class="shot"><div class="ring"></div><img src="../public/img/portrait.jpg"></div>
+  </div>
+  <div class="url">prog-prod.github.io</div>
+</body></html>

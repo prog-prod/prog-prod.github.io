@@ -95,26 +95,29 @@ const circles = computed(() => {
       <line v-for="y in 9" :key="`h${y}`" x1="0" :y1="y * 50" x2="800" :y2="y * 50" />
     </g>
 
-    <!-- decorative blobs -->
-    <circle
-      v-for="(c, i) in circles"
-      :key="i"
-      :cx="c.cx"
-      :cy="c.cy"
-      :r="c.r"
-      :fill="`url(#${gid}-halo)`"
-    />
-    <circle
-      v-for="(c, i) in circles"
-      :key="`s${i}`"
-      :cx="c.cx"
-      :cy="c.cy"
-      :r="c.r * 0.55"
-      fill="none"
-      :stroke="`url(#${gid})`"
-      stroke-opacity="0.18"
-      stroke-width="1.5"
-    />
+    <!-- decorative blobs.
+         Each v-for is wrapped in a <g>: a bare v-for renders a fragment, and
+         hydration loses the SVG namespace across it, so Vue tried to assign
+         cx/cy/r as DOM properties — which are read-only on SVGCircleElement. -->
+    <g>
+      <circle
+        v-for="(c, i) in circles"
+        :key="i"
+        :cx="c.cx"
+        :cy="c.cy"
+        :r="c.r"
+        :fill="`url(#${gid}-halo)`"
+      />
+    </g>
+    <g fill="none" :stroke="`url(#${gid})`" stroke-opacity="0.18" stroke-width="1.5">
+      <circle
+        v-for="(c, i) in circles"
+        :key="`s${i}`"
+        :cx="c.cx"
+        :cy="c.cy"
+        :r="c.r * 0.55"
+      />
+    </g>
 
     <!-- icon -->
     <g

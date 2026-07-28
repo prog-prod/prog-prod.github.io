@@ -53,6 +53,27 @@
   align-items: center;
 }
 
+.hero-content {
+  position: relative;
+}
+
+/* The 3D scene is a fixed, full-viewport layer, so it can pass behind this
+   copy — especially once the grid collapses to one column. This scrim keeps
+   the text readable instead of letting bright particles show through it. */
+.hero-content::before {
+  content: '';
+  position: absolute;
+  inset: -48px -64px;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 32% 50%,
+    rgba(5, 5, 17, 0.94) 0%,
+    rgba(5, 5, 17, 0.82) 42%,
+    rgba(5, 5, 17, 0) 76%
+  );
+}
+
 .hero-title {
   font-size: clamp(40px, 6.4vw, 68px);
   font-weight: 700;
@@ -150,6 +171,19 @@
 
   .hero-sub {
     font-size: 16px;
+  }
+
+  /* One column means the scene sits directly behind the whole block, not
+     beside it, so the scrim has to cover its full height — buttons and social
+     icons included — rather than fading out around the copy. */
+  .hero-content::before {
+    inset: -32px -28px -20px;
+    background: linear-gradient(
+      to bottom,
+      rgba(5, 5, 17, 0.95) 0%,
+      rgba(5, 5, 17, 0.9) 62%,
+      rgba(5, 5, 17, 0.72) 100%
+    );
   }
 }
 </style>
