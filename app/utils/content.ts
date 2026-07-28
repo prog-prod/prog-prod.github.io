@@ -32,7 +32,7 @@ export const TELEGRAM_HANDLE = `@${TELEGRAM.split('/').pop()}`
 
 export const SOCIALS: Social[] = [
   { name: 'GitHub', icon: 'github', url: 'https://github.com/prog-prod' },
-  { name: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/in/andrii-polyvianyi/' },
+  { name: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/in/andrii-polyvyanyi/' },
   { name: 'Telegram', icon: 'telegram', url: TELEGRAM },
   {
     name: 'Stack Overflow',
