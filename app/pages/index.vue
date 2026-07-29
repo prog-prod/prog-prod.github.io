@@ -4,6 +4,7 @@
     <AboutSection />
     <SkillsSection />
     <PortfolioSection />
+    <CvRequestSection />
     <ContactSection />
   </div>
 </template>

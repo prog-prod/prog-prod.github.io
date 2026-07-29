@@ -26,6 +26,11 @@ export interface Social {
   url: string
 }
 
+// Web3Forms relays submissions to the address the key is bound to, so the
+// destination inbox never appears in the public HTML.
+export const CV_FORM_ENDPOINT = 'https://api.web3forms.com/submit'
+export const CV_FORM_ACCESS_KEY = '9e31285b-6795-4123-9501-88be55f968d9'
+
 export const EMAIL = 'polyvyanyy.andrii@gmail.com'
 export const TELEGRAM = 'https://t.me/primary_dv'
 export const TELEGRAM_HANDLE = `@${TELEGRAM.split('/').pop()}`

@@ -15,7 +15,7 @@
         </p>
         <div v-reveal="240" class="hero-actions">
           <a class="btn btn-primary" href="#work">View my work</a>
-          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+          <a class="btn btn-ghost" href="#cv">Request my CV</a>
         </div>
         <div v-reveal="320" class="hero-socials">
           <a
