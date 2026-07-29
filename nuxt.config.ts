@@ -14,6 +14,32 @@ function asset(path: string) {
 const NAME = 'Andrii Polyvianyi'
 const pageUrl = siteUrl + baseURL
 
+// Analytics ships only on the deployed site. The Pages workflow sets this flag,
+// so `nuxt dev` and a local `nuxt generate` stay out of the real properties
+// instead of logging localhost sessions into them.
+const analyticsEnabled = process.env.NUXT_PUBLIC_ANALYTICS === 'true'
+const CLARITY_ID = 'xtwz86qyji'
+const GA4_ID = 'G-E61LCWDDQ2'
+
+const analyticsScripts = analyticsEnabled
+  ? [
+      {
+        innerHTML:
+          '(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};' +
+          't=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;' +
+          'y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);' +
+          `})(window,document,"clarity","script","${CLARITY_ID}");`
+      },
+      { src: `https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`, async: true },
+      {
+        innerHTML:
+          'window.dataLayer=window.dataLayer||[];' +
+          'function gtag(){dataLayer.push(arguments);}' +
+          `gtag('js',new Date());gtag('config','${GA4_ID}');`
+      }
+    ]
+  : []
+
 // Person schema: the cheapest structured-data win for a personal site — it is
 // what lets search engines tie the name, role and profile links together.
 const personSchema = {
@@ -112,7 +138,8 @@ export default defineNuxtConfig({
         {
           type: 'application/ld+json',
           innerHTML: JSON.stringify(personSchema)
-        }
+        },
+        ...analyticsScripts
       ]
     }
   }
