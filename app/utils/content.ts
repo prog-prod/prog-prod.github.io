@@ -26,7 +26,6 @@ export interface Social {
   url: string
 }
 
-export const CV_URL = '/andrii-polyvianyi-cv.pdf'
 export const EMAIL = 'polyvyanyy.andrii@gmail.com'
 export const TELEGRAM = 'https://t.me/primary_dv'
 export const TELEGRAM_HANDLE = `@${TELEGRAM.split('/').pop()}`

@@ -1,9 +1,3 @@
-<script setup lang="ts">
-const cvHref = computed(
-  () => useRuntimeConfig().app.baseURL.replace(/\/$/, '') + CV_URL
-)
-</script>
-
 <template>
   <section id="contact" class="section contact">
     <div class="container contact-inner">
@@ -26,7 +20,6 @@ const cvHref = computed(
           <SocialIcon name="telegram" />
           {{ TELEGRAM_HANDLE }}
         </a>
-        <a class="btn btn-ghost" :href="cvHref" download>Download CV</a>
       </div>
 
       <p v-reveal="280" class="contact-note">
