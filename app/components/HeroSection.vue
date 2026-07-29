@@ -8,10 +8,10 @@
           <span class="text-grad">I build things for&nbsp;the&nbsp;web.</span>
         </h1>
         <p v-reveal="160" class="hero-sub">
-          Welcome to my personal website. For 8+ years I've been crafting fast,
-          reliable web applications — from clean backend APIs to interfaces that
-          feel alive. Take a look at my work, or write me to build something
-          together.
+          For 8+ years I've been shipping fast, secure web applications — from
+          database design and clean backend APIs to interfaces that feel alive.
+          Today I own the production environment of a fintech's key products.
+          Take a look at my work, or write me to build something together.
         </p>
         <div v-reveal="240" class="hero-actions">
           <a class="btn btn-primary" href="#work">View my work</a>

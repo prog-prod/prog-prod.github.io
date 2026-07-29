@@ -7,7 +7,8 @@
           My tools <span class="text-grad">of development</span>
         </h2>
         <p v-reveal="120" class="section-sub">
-          The stack I use daily to take products from an idea to production.
+          The stack I use daily to take products from an idea to a stable
+          production release — and keep them running there.
         </p>
       </div>
 

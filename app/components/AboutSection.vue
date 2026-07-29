@@ -23,36 +23,64 @@
         <div class="about-text">
           <p v-reveal="80">
             Hi! I'm <strong>Andrii Polyvianyi</strong>, a full stack web developer
-            from Ukraine. I take real ownership of the tasks I work on: I like
-            shipping features end to end — from the database schema and API design
-            to the last pixel of the interface.
+            from Ukraine with 8+ years in commercial development. Today I own the
+            production environment of a fintech's key web applications — stability
+            monitoring, security, performance and the release process are all on
+            me, and releases go out on schedule.
           </p>
           <p v-reveal="140">
-            I'm constantly learning something new and levelling up as an engineer.
-            Over the years I've built ticket-tracking systems, e-commerce stores,
-            booking services and internal tools — mostly with PHP, Laravel,
-            Vue.js and Node.js.
+            Before that I refactored a microservice membership platform on AWS,
+            built a UK real-estate API covered with unit, feature and end-to-end
+            tests, and grew into a team lead on an e-commerce frontend. I move
+            comfortably between Laravel, Vue&nbsp;/&nbsp;Nuxt and Node.js — and I
+            talk to clients directly, in English.
           </p>
 
-          <blockquote v-reveal="200">
+          <ul v-reveal="200" class="about-highlights">
+            <li>
+              Maintained, refactored and hardened <strong>6+ financial
+              products</strong>, and took full responsibility for their
+              production environment.
+            </li>
+            <li>
+              Repelled <strong>DDoS and form-spam attacks</strong> and raised the
+              security baseline of the company's public websites.
+            </li>
+            <li>
+              Designed a <strong>multi-tenant SaaS platform</strong> on Vue 3 +
+              Inertia.js with RBAC, impersonation and a LiqPay payment gateway.
+            </li>
+            <li>
+              Drove code reviews and clean-ups on an AWS microservice platform,
+              <strong>cutting critical bugs</strong> in production releases.
+            </li>
+          </ul>
+
+          <blockquote v-reveal="260">
             A cup of coffee and a list of interesting tasks is all it takes for a
             good, productive day — the positive attitude is already included.
           </blockquote>
 
-          <div v-reveal="260" class="about-stats">
+          <div v-reveal="320" class="about-stats">
             <div class="stat">
               <span class="stat-num text-grad">8+</span>
-              <span class="stat-label">years of experience</span>
+              <span class="stat-label">years in commercial development</span>
             </div>
             <div class="stat">
-              <span class="stat-num text-grad">35+</span>
-              <span class="stat-label">public repositories</span>
+              <span class="stat-num text-grad">12+</span>
+              <span class="stat-label">production projects shipped</span>
             </div>
             <div class="stat">
-              <span class="stat-num text-grad">∞</span>
-              <span class="stat-label">cups of coffee</span>
+              <span class="stat-num text-grad">2</span>
+              <span class="stat-label">Master's degrees</span>
             </div>
           </div>
+
+          <p v-reveal="380" class="about-meta">
+            MSc in Computer Science, Sumy State University · MSc in Applied
+            Physics, Taras Shevchenko National University of Kyiv · Ukrainian
+            (native) · English (B1–B2, actively improving)
+          </p>
         </div>
       </div>
     </div>
@@ -123,6 +151,38 @@
   color: var(--text);
 }
 
+.about-highlights {
+  list-style: none;
+  margin: 28px 0 4px;
+  display: grid;
+  gap: 14px;
+}
+
+.about-highlights li {
+  position: relative;
+  padding-left: 26px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+/* The marker echoes the chip bullets used across the site, so the list reads as
+   part of the same system rather than as a plain <ul>. */
+.about-highlights li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--grad);
+}
+
+.about-highlights strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
 blockquote {
   margin: 28px 0;
   padding: 20px 26px;
@@ -158,6 +218,16 @@ blockquote {
   margin-top: 8px;
   color: var(--muted);
   font-size: 14px;
+}
+
+/* Scoped under .about-text to outrank the `.about-text p` base rule above. */
+.about-text .about-meta {
+  margin-top: 32px;
+  margin-bottom: 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 @media (max-width: 900px) {

@@ -25,11 +25,29 @@ const personSchema = {
   jobTitle: 'Full Stack Web Developer',
   email: 'mailto:polyvyanyy.andrii@gmail.com',
   address: { '@type': 'PostalAddress', addressCountry: 'UA' },
-  knowsAbout: ['PHP', 'Laravel', 'Vue.js', 'Nuxt', 'Node.js', 'TypeScript', 'MySQL'],
+  knowsAbout: [
+    'PHP',
+    'Laravel',
+    'Vue.js',
+    'Nuxt',
+    'Inertia.js',
+    'Node.js',
+    'TypeScript',
+    'MySQL',
+    'PostgreSQL',
+    'Redis',
+    'Elasticsearch',
+    'RabbitMQ',
+    'Docker',
+    'AWS'
+  ],
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Sumy State University' },
+    { '@type': 'CollegeOrUniversity', name: 'Taras Shevchenko National University of Kyiv' }
+  ],
   sameAs: [
     'https://github.com/prog-prod',
     'https://www.linkedin.com/in/andrii-polyvyanyi/',
-    'https://stackoverflow.com/users/10215872/andrii-polyvianyi',
     'https://t.me/primary_dv'
   ]
 }
@@ -57,7 +75,7 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'Personal website of Andrii Polyvianyi — a full stack web developer from Ukraine building fast, modern web applications with PHP, Laravel, Vue.js, Nuxt and Node.js.'
+            'Personal website of Andrii Polyvianyi — a full stack web developer from Ukraine with 8+ years of experience building fast, secure, high-load web applications with PHP, Laravel, Vue.js, Nuxt, Node.js, PostgreSQL, Docker and AWS.'
         },
         { name: 'theme-color', content: '#050511' },
         { property: 'og:title', content: 'Andrii Polyvianyi — Full Stack Web Developer' },

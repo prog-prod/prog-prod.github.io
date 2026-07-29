@@ -38,30 +38,48 @@ export const TELEGRAM_HANDLE = `@${TELEGRAM.split('/').pop()}`
 export const SOCIALS: Social[] = [
   { name: 'GitHub', icon: 'github', url: 'https://github.com/prog-prod' },
   { name: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/in/andrii-polyvyanyi/' },
-  { name: 'Telegram', icon: 'telegram', url: TELEGRAM },
-  {
-    name: 'Stack Overflow',
-    icon: 'stackoverflow',
-    url: 'https://stackoverflow.com/users/10215872/andrii-polyvianyi'
-  },
-  { name: 'Instagram', icon: 'instagram', url: 'https://www.instagram.com/prog_prog_/' }
+  { name: 'Telegram', icon: 'telegram', url: TELEGRAM }
 ]
 
 export const SKILL_GROUPS: SkillGroup[] = [
   {
     title: 'Backend',
-    hint: 'APIs, architecture & business logic',
-    items: ['PHP', 'Laravel', 'Yii2', 'Node.js', 'REST API', 'WordPress']
+    hint: 'APIs, domain logic & integrations',
+    items: ['PHP 8', 'Laravel', 'Yii2', 'CodeIgniter', 'Node.js', 'Nest.js', 'REST API', 'GraphQL']
   },
   {
     title: 'Frontend',
-    hint: 'Interfaces people enjoy using',
-    items: ['JavaScript', 'TypeScript', 'Vue.js', 'Nuxt', 'HTML5', 'CSS3', 'Three.js']
+    hint: 'SSR apps and interfaces people enjoy',
+    items: [
+      'JavaScript (ES6+)',
+      'TypeScript',
+      'Vue 2/3',
+      'Nuxt',
+      'Inertia.js',
+      'Tailwind CSS',
+      'Vuetify',
+      'Three.js'
+    ]
   },
   {
-    title: 'Data & DevOps',
-    hint: 'Storage, search & delivery',
-    items: ['MySQL', 'Elasticsearch', 'Docker', 'Git', 'Linux', 'CI/CD', 'Webpack']
+    title: 'Data & Search',
+    hint: 'Storage, search & messaging at scale',
+    items: ['MySQL / MariaDB', 'PostgreSQL', 'Redis', 'Elasticsearch', 'Meilisearch', 'RabbitMQ']
+  },
+  {
+    title: 'DevOps & Cloud',
+    hint: 'Deployment, uptime & production ownership',
+    items: ['Docker', 'Linux', 'Nginx / Apache', 'AWS (EC2, ECS, S3)', 'CloudFront', 'CI/CD']
+  },
+  {
+    title: 'Architecture & Quality',
+    hint: 'Systems that stay maintainable',
+    items: ['SOLID', 'Design Patterns', 'Microservices', 'Multi-tenancy', 'RBAC', 'Code Review']
+  },
+  {
+    title: 'Testing & Workflow',
+    hint: 'Confidence before every release',
+    items: ['PHPUnit', 'Jest', 'Laravel Dusk', 'Git Flow', 'ESLint / Prettier', 'SCRUM']
   }
 ]
 
